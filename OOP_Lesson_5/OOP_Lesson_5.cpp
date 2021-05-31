@@ -61,7 +61,9 @@ private:
     T2 m_second;
 public:
     Pair(T1 first, T2 second) : m_first(first), m_second(second) { }
-    T1 first() const { return m_first; }
+    T1 first() const { 
+        return m_first; 
+    }
     T2 second() const { return m_second; }
 };
 
@@ -84,11 +86,14 @@ public:
 //Подсказка : при вызове конструктора класса Pair из конструктора класса StringValuePair не забудьте указать, что параметры относятся к классу Pair.
 
 
-template <const string& s, class T>
-class StringValuePair : public Pair<s, class T>
+template <class T>
+class StringValuePair : public Pair<string, T>
 {
-
+public:
+    StringValuePair(const string& first, T second) : Pair<string, T>(first, second) {}
 };
+
+
 
 //4.
 //Согласно иерархии классов, которая представлена в методичке к уроку 3, от класса Hand наследует класс GenericPlayer, 
@@ -97,6 +102,10 @@ class StringValuePair : public Pair<s, class T>
 //IsHitting() - чисто виртуальная функция, возвращает информацию, нужна ли игроку еще одна карта.
 //IsBoosted() - возвращает bool значение, есть ли у игрока перебор
 //Bust() - выводит на экран имя игрока и объявляет, что у него перебор.
+
+
+
+
 
 
 int main()
@@ -115,5 +124,7 @@ int main()
     
     StringValuePair<int> svp("Amazing", 7);
     std::cout << "Pair: " << svp.first() << ' ' << svp.second() << '\n';
+
+
     return 0;
 }
