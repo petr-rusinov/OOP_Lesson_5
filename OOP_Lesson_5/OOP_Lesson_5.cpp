@@ -90,7 +90,7 @@ template <class T>
 class StringValuePair : public Pair<string, T>
 {
 public:
-    StringValuePair(const string& first, T second) : Pair<string, T>(first, second) {}
+    StringValuePair(string first, T second) : Pair<string, T>(first, second) {}
 };
 
 
@@ -104,7 +104,21 @@ public:
 //Bust() - выводит на экран имя игрока и объявляет, что у него перебор.
 
 
-
+class GenericPlayer
+{
+private:
+    string m_playerName;
+public:
+    virtual bool isHitting() = 0;
+    bool isBoosted() 
+    {
+        return false;
+    };
+    void bust()
+    {
+        cout << m_playerName << " busted" << endl;
+    }
+};
 
 
 
