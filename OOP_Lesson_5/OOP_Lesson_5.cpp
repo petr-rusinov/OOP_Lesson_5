@@ -116,7 +116,7 @@ class Card
 public:
     Card(eSuit suit, eRank value, bool pos) : m_suit(suit), m_rank(value), m_isFaceUp(pos) {}
     void flip() { m_isFaceUp = !m_isFaceUp; }
-    int getValue() 
+    int getValue() const
     {
         int value = 0;
         if (m_isFaceUp)
@@ -150,7 +150,7 @@ public:
         }
         m_cards.clear();
     }
-    int getTotal()
+    int getTotal() const
     {
 
         if (m_cards.empty()) 
