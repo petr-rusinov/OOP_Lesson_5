@@ -196,13 +196,14 @@ class GenericPlayer : public Hand
 private:
     string m_playerName;
 public:
+    GenericPlayer(const string& name) : m_playerName(name) { } 
     virtual bool isHitting() = 0;
-    bool isBoosted() 
+    bool isBoosted() const
     {
         return getTotal() > 21;
     }
 
-    void bust()
+    void bust() const
     {
         cout << m_playerName << " busted" << endl;
     }
